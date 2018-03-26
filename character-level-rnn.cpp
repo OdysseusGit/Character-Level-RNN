@@ -273,10 +273,10 @@ void backProp(double *inputVec, double *outputVec, double *targetVec, double *ol
 	}
 
 	double *multiPtr;
+	multiPtr = multiply(Why, y_h);
 
 	//calculate E_Whh
 	double y_Whh[4];
-	multiPtr = multiply(Why, y_h);
 	for (int i = 0; i < 4; i++)
 	{
 		y_Whh[i] = multiPtr[i] * oldh[i];
@@ -290,7 +290,6 @@ void backProp(double *inputVec, double *outputVec, double *targetVec, double *ol
 
 	//calculate E_Wxh
 	double y_Wxh[4];
-	multiPtr = multiply(Why, y_h);
 	for (int i = 0; i < 4; i++)
 	{
 		y_Wxh[i] = multiPtr[i] * inputVec[i];
