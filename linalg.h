@@ -1,11 +1,13 @@
 /*
- *	A collection of linear algebra resources. 
- *	Only suitable for (4x4)-matrices and (4x1)-vector manipulations.
+ * A collection of linear algebra resources. 
+ *
+ * Current state: 
+ * Only suitable for (4x4)-matrices and (4x1)-vector manipulations.
  */
 
 #pragma once
 
-double *normalise(double inputVec[4])
+double *normalise(double inputVec[4]) //vector normalisation (magnitude based)
 {
 	double vectorSum = inputVec[0] + inputVec[1] + inputVec[2] + inputVec[3];
 
@@ -18,7 +20,7 @@ double *normalise(double inputVec[4])
 	return outputVec;
 }
 
-double *softmax(double inputVec[4])
+double *softmax(double inputVec[4]) //softmax vector normalisation
 {
 	static double outputVec[4];
 	for (int i = 0; i < 4; i++)
