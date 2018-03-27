@@ -15,7 +15,7 @@ double h[4]; //hidden vector
 
 double *vectify(char inputChar); //used to convert a string into a vector (with one hot encoding)
 double *step(double *x); //RNN step function
-double error(double *inputVec, double *outputVec); //cross entropy loss between the target and the output
+double error(double *targetVec, double *outputVec); //cross entropy loss between the target and the output
 
 void initialise(); //randomly initialise the weights and zero the hidden vector
 void backProp(double *inputVec, double *outputVec, double *targetVec, double *oldh); //adjust the weights via backpropagation
@@ -198,27 +198,8 @@ double *step(double *x)
 	return y;
 }
 
-double error(double *inputVec, double *outputVec)
+double error(double *targetVec, double *outputVec)
 {
-	double targetVec[4] = { 0, 0, 0, 0 };
-
-	if (inputVec[0] == 1)
-	{
-		targetVec[1] = 1;
-	}
-	else if (inputVec[1] == 1)
-	{
-		targetVec[2] = 1;
-	}
-	else if (inputVec[2] == 1)
-	{
-		targetVec[3] = 1;
-	}
-	else if (inputVec[3] == 1)
-	{
-		targetVec[0] = 1;
-	}
-
 	//normalise outputVec to get the probablility of each character
 	double *p;
 	p = softmax(outputVec);
