@@ -275,6 +275,7 @@ double *vectify(char inputChar)
 		case 'l': outputVec[2] = 1;
 			break;
 		case 'o': outputVec[3] = 1;
+			break;
 	}
 
 	return outputVec;
